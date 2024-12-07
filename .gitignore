@@ -1,32 +1,120 @@
-# Prerequisites
-*.d
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
 
-# Precompiled Headers
-*.gch
-*.pch
+/*
+                                                         --- PROGRAM_2 ---
+                                                         Topic:
+                                                         i. constructors.
+*/
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
 
-# Fortran module files
-*.mod
-*.smod
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+/*
+                                                 ---Constructor---
 
-# Executables
-*.exe
-*.out
-*.app
+definition:
+A constructor is a special method that is invoked (call on) each time an object of a class is created. for instance when
+we created the employee1 and employee2 a constructor is created by default for both.
+
+in program_1 we have to type out everything which is okay but how about if we want to make 20 or 30
+employees, it will be alot of work. Therefore, a better is we can use constructors.
+
+
+*/
+
+
+
+#include <iostream> 
+
+
+using std::string;
+
+class Employee {
+
+
+public:
+
+  
+    string Name;
+    string Company;
+    int Age = 0;
+
+    void employeeinformatin() {
+        std::cout << "Name: " << Name << "\n";
+        std::cout << "Company: " << Company << "\n";
+        std::cout << "Age: " << Age << "\n\n";
+    }
+
+    /*
+            --3_Rules of a constructor--
+            1. does not have a reurn type, not even void.
+            2. Have Same exact name as the class it belongs to.
+            3. Constructor must be public (but there are situation you can make your constructor private).
+    
+    */
+
+
+    /*
+        The job of the constructor here is to construct the object of employee. So whatever we want for the object like
+        name company and age we can pass it to the constructor.
+    */
+
+    Employee(string name, string company, int age) {// These are the parameters.
+        // assign these parameters to the attriubutes 
+        Name = name; 
+        Company = company;
+        Age = age;
+    }
+
+
+
+};
+
+
+
+
+int main()
+{
+    
+
+  
+    /*
+        --the code--
+
+    Employee employee1;
+    employee1.employeeinformatin();
+
+    Employee employee2;
+    employee2.employeeinformatin();
+    when we ran the code it will show this ;
+
+       --output--
+     _________________________
+    Name:
+    Company:
+    Age: 0
+
+    Name:
+    Company:
+    Age: 0
+    ----------------------------
+    Even though we did not  call it in the main like "emloyee. age" but it outputs the info anyways.
+    this is a work of a default constructor. 
+    it is automatically created. However, if we created a constructor
+    then there is no default constructor.
+    */
+
+
+    /*
+     Here we are invoking( call on) the constructor Employee. We pass the argument list that is required 
+     by the constructor we created. This is less work than program_1
+    */
+
+    Employee employee1 ("Sladina","YT.codebeauty", 25);
+    employee1.employeeinformatin();
+
+    Employee employee2=Employee("John","Amazon", 35);
+    employee2.employeeinformatin();
+
+}
+
+
